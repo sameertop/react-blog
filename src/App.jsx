@@ -1,17 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import { useState } from "react";
+import Sameer from "./header";
 
-function App() {
-  const [count, setCount] = useState(0)
+// function Apple(){
+//   const[counter,setcounter]=useState(0);
+//   return(
+// <div>
+//   <Sameer />
+//   <h1>sameer top</h1>
+//   <h2>hello : {counter} </h2>
+//   <button  onClick={()=>setcounter(counter+1)} >increase counter</button>
+// </div>
+//   )
+// }
 
-  return (
-    <>
-      <h1>Sameer top</h1>
-      <h2>react js</h2>
-    </>
+// export default Apple
+
+
+function Colour(){
+  return(
+    <div>
+      <h1>sameer top</h1>
+      <h1>sameer top 2</h1>
+      <Fruit/>
+      <Sameer/>
+    </div>
+  )
+}
+export default Colour
+
+
+function Fruit(){
+  return(
+    <h1>bananna</h1>
   )
 }
 
-export default App
+
+
