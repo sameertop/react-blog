@@ -1,11 +1,23 @@
-import { Component, useEffect, useState, useTransition } from "react";
-import Sameer, { Lorem } from "./header";
+// import { Component, use, useTransition } from "react";
+// import Sameer, { Lorem } from "./header";
 // import New from "./user";
-import { useRef } from "react";
+// import { useRef } from "react";
 // import Userinput from "./user";
-import { useFormStatus, } from 'react-dom'
-import Sawant from "./sawant";
-import Adduser from "./user1";
+// import { useFormStatus, } from 'react-dom'
+// import { useActionState } from "react";
+// import { useId } from "react";
+// import { Subjectcontext } from "./ContextData";
+// import Nav from "./Navbar";
+// import  UserList  from "./Users";
+// import Home from "./home";
+// import Userdetail from "./Userdetail";
+// import About from "./About";
+// import Contact from "./contact";
+// import Skills from "./Skills";
+// import Project from "./Project";
+// import { Route, Routes, Link, Navigate } from "react-router-dom";
+import {useEffect, useState} from "react";
+import "./App.css";
 
 // function Colour(){
 //   return(
@@ -1045,6 +1057,7 @@ import Adduser from "./user1";
 //       <h1>updating objects in state</h1>
 //       <input type="text" onChange={(event)=>setData(prev=>({...prev,name:event.target.value}))} placeholder="update name" />
 //       <input type="text" onChange={(event)=>setData(prev=>({...prev,adress:{...prev.adress,city:event.target.value}}))} placeholder="update city" />
+//       <input type="text" onChange={(event)=>setData(prev=>({...prev,adress:{...prev.adress,country:event.target.value}}))} placeholder="update country" />
 //        <h2>Name:{data.name} </h2>
 //        <h2>City:{data.adress.city} </h2>
 //        <h2>Country:{data.adress.country}</h2>
@@ -1054,3 +1067,236 @@ import Adduser from "./user1";
 //  export default App;
 
 
+
+// change array in state
+
+// function App() {
+//     const [data, setData] = useState(["Sameer", "niket", "aditya"]);
+
+//     const handleName = (name) => {
+// console.log(name);
+// data[data.length - 2] = name;
+// setData([...data]);
+//     }
+
+//     const[newData,setnewData]=useState([
+//         {name:"sameer", age:22},
+//         {name:"niket", age:25},
+//         {name:"aditya", age:24},
+//     ]);
+
+//     const handleAge=(age)=>{
+//         newData[newData.length-1].age=age;
+//         setnewData([...newData])
+//     }
+
+//     return (
+//         <div>
+//             <h1>Welcome to React</h1>
+//             <input type="text" placeholder="change your last name"  
+//             onChange={(e)=>handleName(e.target.value)}/>
+//             {data.map((item, index) =>
+//                 <h3 key={index}>{item}</h3>)}
+//                 <hr />
+
+//                 <input type="text" placeholder="change your last age"  
+//             onChange={(e)=>handleAge(e.target.value)}/>
+//             {newData.map((item, index) =>
+//                 <h4 key={index}>{item.name}, {item.age}</h4>)}
+//         </div>
+//     )
+// }
+// export default App;
+
+
+
+// function App() {
+//     const top = [
+//         { name: "sameer", age: 22 },
+//         { name: "niket", age: 25 },
+//         { name: "aditya", age: 24 },
+//         { name: "ganesh", age: 26 },
+//         { name: "rane", age: 27 }
+//     ];
+//     return(
+//         <div>
+//             <h1>sameer top</h1>
+//             {top.map((item)=>
+//             <h2>
+//                 {item.name}, {item.age }
+//             </h2>)}
+//         </div>
+//     )
+// }
+// export default App;
+
+// use action state example
+// export default function App() {
+
+//   const handleSubmit = async (previousData, formData) => {
+//     let name = formData.get('name');
+//     let password = formData.get('password');
+//     let email = formData.get('email');
+
+//     await new Promise(res => setTimeout(res, 2000))
+//     // console.log("handleSubmit called",name,password);
+//     if (name && password && email) {
+//       return { message: 'Data Submitted', name, password, email }
+//     } else {
+//       return { error: 'Failed to Submit. Enter proper data', name, password ,email}
+//     }
+
+//   }
+//   const [data, action, pending] = useActionState(handleSubmit, undefined)
+//   console.log(data);
+
+//   return (
+//     <>
+//       <h1>useActionState Hook in React js</h1>
+//       <form action={action}>
+//         <input defaultValue={data?.name} type="text" placeholder="enter name" name="name" />
+//         <br /><br />
+//         <input defaultValue={data?.password} type="password" placeholder="enter password" name="password" /><br /><br />
+//         <input defaultValue={data?.email} type="email" placeholder="enter email" name="email" />
+//         <br /><br />
+//         <button disabled={pending} >Submit data</button>
+//         <br />
+
+//       </form>
+
+//       {
+//         data?.error && <span style={{ color: 'red' }}>{data?.error}</span>
+//       }
+//       {
+//         data?.message && <span style={{ color: 'green' }}>{data?.message}</span>
+//       }
+//       <hr />
+
+//       <h3>Name : {data?.name}</h3>
+//       <h3>Password : {data?.password}</h3>
+//       <h3>Email : {data?.email}</h3>
+
+//     </>
+//   );
+// }
+
+
+// function App() {
+//   return(
+//     <div>
+//       <Apple />
+//     </div>
+//   )
+// }
+// export default App;
+
+// function Apple(){
+//   const name = useId();
+//   const password = useId();
+//   const terms = useId();
+//   return(
+//     <div>
+//       <h1>hello sameer</h1>
+//       <form action="">
+//         <input type="text" id={name} placeholder="enter name"  />
+//         <label htmlFor={name}>Name</label>
+//         <br /><br />
+
+//         <input type="password" id={password} placeholder="enter password"  />
+//         <label htmlFor={password}>Password</label>
+//         <br /><br />
+
+//         <input type="checkbox" id={terms}  />
+//         <label htmlFor={terms}>I agree to the terms and conditions</label>
+//       </form>
+//     </div>
+//   )
+// }
+
+
+
+// function App() {
+//   const [Subject, setSubject] = useState(" ")
+//   return(
+//     <div style={{backgroundColor:"red", padding:"10px"}}>
+//       <Subjectcontext.Provider value={Subject}>
+//       <h1>hello sameer</h1>
+//       <select defaultValue={Subject} onChange={(event)=> setSubject(event.target.value)}>
+//         <option   value="">Select subject</option>
+//         <option value="angular">Angular</option>
+//         <option value="vue js">Vue JS</option>
+//         <option value="PHP">PHP</option>
+//       </select>
+//       <button onClick={()=>setSubject("")} >
+//         clear Subject
+//       </button>
+//       <College/>
+//       </Subjectcontext.Provider>
+//     </div>
+//   )
+// }
+// export default App;
+
+// routing example
+// function App() {
+//     return (
+//         <>
+//             <Routes>
+
+//                 <Route element={<Nav />}>
+//                     <Route path="/" element={<Home />} />
+//                     <Route path="/contact/" element={<Contact />} />
+//                     <Route path="/users" element={<UserList />} />
+
+//                 </Route>
+//                 <Route path="/Users/:id/" element={<Userdetail />} />
+//                 <Route path="/About" element={<About />}>
+//                     <Route index element={<Skills />} />
+//                     <Route path="Skills" element={<Skills />} />
+//                     <Route path="Project" element={<Project />} />
+//                 </Route>
+//                 <Route path="/*" element={<h1>404 Not Found</h1>} />
+//             </Routes>
+
+//         </>
+//     )
+// }
+// export default App;
+
+
+function App() {
+    const [UsersData, SetUsersData] = useState([]);
+    useEffect(() => {
+        GetUsersData();
+    }, [])
+
+    const GetUsersData = async () => {
+        const url = "https://dummyjson.com/users";
+        let response = await fetch(url);
+        response = await response.json()
+        SetUsersData(response.users);
+
+    }
+    console.log(UsersData);
+    return (
+        <div>
+            
+<h1>Hello, React!</h1>
+            <ul className="user-title">
+                <li>Firstname</li>
+                <li>LastName</li>
+                <li>Age</li>
+                <li>password</li>
+               </ul>
+            {UsersData.map((user) => (
+               <ul  key={user.id} className="user-header">
+                <li>{user.firstName}</li>
+                <li>{user.lastName}</li>
+                <li>{user.age}</li>
+                <li>{user.password}</li>
+               </ul>
+            ))}
+        </div>
+    )
+}
+export default App;
